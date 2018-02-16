@@ -310,7 +310,7 @@ impl<T: Read + Write> Client<T> {
     /// Fetch retreives data associated with a message in the mailbox.
     pub fn fetch(&mut self, sequence_set: &str, query: &str) -> ZeroCopyResult<Vec<Fetch>> {
         self.run_command_and_read_response(&format!("FETCH {} {}", sequence_set, query))
-            .and_then(|lines| parse_fetches(lines))
+            .and_then(|lines| println!("{:?}", lines))
     }
 
     pub fn uid_fetch(&mut self, uid_set: &str, query: &str) -> ZeroCopyResult<Vec<Fetch>> {
