@@ -25,6 +25,7 @@ unsafe fn parse_many<T, F>(lines: Vec<u8>, mut map: F) -> ZeroCopyResult<Vec<T>>
 where
     F: FnMut(Response<'static>) -> MapOrNot<T>,
 {
+    println!("{:?}", lines);
     let f = |mut lines| {
         let mut things = Vec::new();
         loop {
