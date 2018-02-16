@@ -86,6 +86,7 @@ pub fn parse_fetches(lines: Vec<u8>) -> ZeroCopyResult<Vec<Fetch>> {
             };
 
             for attr in attrs {
+                println!("{:?}", attr);
                 use imap_proto::AttributeValue;
                 match attr {
                     AttributeValue::Flags(flags) => {
